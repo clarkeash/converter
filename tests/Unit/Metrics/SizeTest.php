@@ -1,6 +1,6 @@
 <?php
 
-namespace Clarkeash\Converter\Tests\Unit;
+namespace Clarkeash\Converter\Tests\Unit\Metrics;
 
 use Clarkeash\Converter\Metrics\Size;
 use PHPUnit\Framework\Assert;
