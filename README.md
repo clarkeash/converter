@@ -20,6 +20,12 @@ Convert metrics from one form to another.
   </a>
 </p>
 
+## Installation
+
+```bash
+composer require clarkeash/converter
+```
+
 ## Usage
 
 ### Convert Memory Sizes
