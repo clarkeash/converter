@@ -2,6 +2,7 @@
 
 namespace Clarkeash\Converter\Tests\Unit\Metrics;
 
+use Clarkeash\Converter\Convert;
 use Clarkeash\Converter\Metrics\Size;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -64,5 +65,12 @@ class SizeTest extends TestCase
         Assert::assertEquals($yobibits = $zebibits * 1024, $size->yobibits());
         Assert::assertEquals($yottabytes = $zettabytes * 1000, $size->yottabytes());
         Assert::assertEquals($yobibytes = $zebibytes * 1024, $size->yobibytes());
+    }
+
+    /** @test */
+    public function check_conversions()
+    {
+        Assert::assertEquals(0.5, Convert::size()->from(500)->megabytes()->to()->gigabytes());
+        Assert::assertEquals(2097152, Convert::size()->from(2)->mebibytes()->to()->bytes());
     }
 }

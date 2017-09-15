@@ -22,4 +22,9 @@ Convert metrics from one form to another.
 
 ## Usage
 
-TODO
+### Convert Memory Sizes
+
+```php
+Convert::size()->from(500)->megabytes()->to()->gigabytes(); // 0.5
+Convert::size()->from(2)->mebibytes()->to()->bytes(); // 2097152
+```
