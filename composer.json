@@ -1,0 +1,28 @@
+{
+    "name": "clarkeash/converter",
+    "description": "Convert units",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ashley Clarke",
+            "email": "me@ashleyclarke.me"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clarkeash\\Converter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Clarkeash\\Converter\\Tests\\": "test/"
+        }
+    }
+}
