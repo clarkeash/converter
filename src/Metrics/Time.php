@@ -56,6 +56,11 @@ class Time implements Metric
         return 10 * $this->years();
     }
 
+    public function scores()
+    {
+        return 20 * $this->years();
+    }
+
     public function jubilees()
     {
         return 50 * $this->years();

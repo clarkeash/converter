@@ -26,6 +26,7 @@ class TimeTest extends TestCase
         Assert::assertEquals(31622400, $time->leapyears());
 
         Assert::assertEquals(315360000, $time->decades());
+        Assert::assertEquals(630720000, $time->scores());
         Assert::assertEquals(1576800000, $time->jubilees());
         Assert::assertEquals(3153600000, $time->centuries());
         Assert::assertEquals(31536000000, $time->millenniums());
