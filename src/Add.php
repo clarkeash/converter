@@ -5,7 +5,7 @@ namespace Clarkeash\Converter;
 use BadMethodCallException;
 use Clarkeash\Converter\Contracts\Metric;
 
-class To
+class Add
 {
     /**
      * @var \Clarkeash\Converter\Convert
@@ -17,26 +17,35 @@ class To
      */
     private $metric;
 
-    public function __construct(Convert $convert, Metric $metric)
+    /**
+     * @var int
+     */
+    private $value = 0;
+
+    /**
+     * Add constructor.
+     *
+     * @param \Clarkeash\Converter\Convert          $convert
+     * @param \Clarkeash\Converter\Contracts\Metric $metric
+     * @param                                       $value
+     */
+    public function __construct(Convert $convert, Metric $metric, $value)
     {
         $this->convert = $convert;
         $this->metric = $metric;
+        $this->value = $value;
     }
 
     public function __call($method, $args)
     {
-        if (in_array($method, ['to', 'in', 'into', 'as'])) {
-            return $this;
-        }
-
-        if ($method == 'and') {
-            return new Add($this->convert, $this->metric, $args[0]);
-        }
-
         if (method_exists($this->metric, $method)) {
             $rate = call_user_func([$this->metric, $method]);
 
-            return $this->convert->getValue() / $rate;
+            $temp = $rate * $this->value;
+
+            $this->convert->setValue($temp + $this->convert->getValue());
+
+            return new To($this->convert, $this->metric);
         }
 
         throw new BadMethodCallException(sprintf('Method: %s does not exist on class: %s', $method, get_class($this->metric)));

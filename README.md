@@ -31,8 +31,17 @@ composer require clarkeash/converter
 ### Convert Memory Sizes
 
 ```php
-Convert::size()->from(500)->megabytes()->to()->gigabytes(); // 0.5
-Convert::size()->from(2)->mebibytes()->to()->bytes(); // 2097152
+Convert::size()->of(500)->megabytes()->to()->gigabytes(); // 0.5
+Convert::size()->of(2)->mebibytes()->to()->bytes(); // 2097152
 ```
 
 See the [Size class](https://github.com/clarkeash/converter/blob/master/src/Metrics/Size.php) to see all the available conversion methods.
+
+### Convert Time
+
+```php
+Convert::time()->from(3)->weeks()->to()->days(); // 21
+Convert::time()->from(4)->scores()->and(7)->years()->into()->years(); // 87
+```
+
+See the [Time class](https://github.com/clarkeash/converter/blob/master/src/Metrics/Time.php) to see all the available conversion methods.

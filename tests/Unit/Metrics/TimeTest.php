@@ -37,5 +37,6 @@ class TimeTest extends TestCase
     public function check_conversions()
     {
         Assert::assertEquals(21, Convert::time()->from(3)->weeks()->to()->days());
+        Assert::assertEquals(87, Convert::time()->from(4)->scores()->and(7)->years()->into()->years());
     }
 }
