@@ -28,20 +28,13 @@ class From
         $this->metric = $metric;
     }
 
-    /**
-     * @param $value
-     *
-     * @return $this
-     */
-    public function from($value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
     public function __call($method, $args)
     {
+        if (in_array($method, ['from', 'of'])) {
+            $this->value = $args[0];
+            return $this;
+        }
+
         if (method_exists($this->metric, $method)) {
             $rate = call_user_func([$this->metric, $method]);
 

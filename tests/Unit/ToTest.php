@@ -43,4 +43,27 @@ class ToTest extends TestCase
 
         Assert::assertEquals(8.4, $from->from(2)->example()->to()->another());
     }
+
+    /** @test */
+    public function it_supports_multiple_terms()
+    {
+        $converter = new Convert;
+
+        $from = new From($converter, new class implements Metric {
+            public function example()
+            {
+                return 50;
+            }
+
+            public function another()
+            {
+                return 10;
+            }
+        });
+
+
+        Assert::assertEquals(10, $from->from(2)->example()->to()->another());
+        Assert::assertEquals(10, $from->from(2)->example()->in()->another());
+        Assert::assertEquals(10, $from->from(2)->example()->into()->another());
+    }
 }

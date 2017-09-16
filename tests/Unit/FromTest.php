@@ -38,4 +38,26 @@ class FromTest extends TestCase
 
         Assert::assertInstanceOf(To::class, $from->from(200)->example());
     }
+
+    /** @test */
+    public function it_supports_multiple_terms()
+    {
+        $converter = new Convert;
+
+        $from = new From($converter, new class implements Metric {
+            public function example()
+            {
+                return 50;
+            }
+
+            public function another()
+            {
+                return 10;
+            }
+        });
+
+
+        Assert::assertEquals(10, $from->from(2)->example()->to()->another());
+        Assert::assertEquals(10, $from->of(2)->example()->to()->another());
+    }
 }

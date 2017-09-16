@@ -2,6 +2,7 @@
 
 namespace Clarkeash\Converter\Tests\Unit\Metrics;
 
+use Clarkeash\Converter\Convert;
 use Clarkeash\Converter\Metrics\Time;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -30,5 +31,11 @@ class TimeTest extends TestCase
         Assert::assertEquals(1576800000, $time->jubilees());
         Assert::assertEquals(3153600000, $time->centuries());
         Assert::assertEquals(31536000000, $time->millenniums());
+    }
+
+    /** @test */
+    public function check_conversions()
+    {
+        Assert::assertEquals(21, Convert::time()->from(3)->weeks()->to()->days());
     }
 }

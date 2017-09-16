@@ -23,16 +23,12 @@ class To
         $this->metric = $metric;
     }
 
-    /**
-     * @return $this
-     */
-    public function to()
-    {
-        return $this;
-    }
-
     public function __call($method, $args)
     {
+        if (in_array($method, ['to', 'in', 'into', 'as'])) {
+            return $this;
+        }
+
         if (method_exists($this->metric, $method)) {
             $rate = call_user_func([$this->metric, $method]);
 
