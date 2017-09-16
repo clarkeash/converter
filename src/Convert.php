@@ -4,6 +4,7 @@ namespace Clarkeash\Converter;
 
 use BadMethodCallException;
 use Clarkeash\Converter\Metrics\Size;
+use Clarkeash\Converter\Metrics\Time;
 
 class Convert
 {
@@ -11,7 +12,8 @@ class Convert
      * @var array
      */
     protected static $metrics = [
-        'size' => Size::class
+        'size' => Size::class,
+        'time' => Time::class,
     ];
 
     /**

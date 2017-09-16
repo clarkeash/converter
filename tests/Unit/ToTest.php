@@ -19,14 +19,9 @@ class ToTest extends TestCase
     {
         $converter = new Convert;
 
-        $from = new From($converter, new class implements Metric {
-            public function example()
-            {
-                return 42;
-            }
-        });
+        $to = new To($converter, new class implements Metric {});
 
-        $from->from(200)->example()->to()->nope();
+        $to->to()->nope();
     }
 
     /** @test */
