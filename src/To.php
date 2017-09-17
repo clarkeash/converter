@@ -2,8 +2,8 @@
 
 namespace Clarkeash\Converter;
 
-use BadMethodCallException;
 use Clarkeash\Converter\Contracts\Metric;
+use Clarkeash\Converter\Exceptions\BadMethodCallException;
 
 class To
 {
@@ -39,6 +39,6 @@ class To
             return $this->convert->getValue() / $rate;
         }
 
-        throw new BadMethodCallException(sprintf('Method: %s does not exist on class: %s', $method, get_class($this->metric)));
+        BadMethodCallException::throw($method, $this->metric, $this);
     }
 }

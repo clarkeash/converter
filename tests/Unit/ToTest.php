@@ -13,7 +13,7 @@ class ToTest extends TestCase
 {
     /**
      * @test
-     * @expectedException \BadMethodCallException
+     * @expectedException \Clarkeash\Converter\Exceptions\BadMethodCallException
      */
     public function it_errors_if_method_does_not_exist()
     {

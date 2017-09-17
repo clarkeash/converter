@@ -11,7 +11,7 @@ class ConvertTest extends TestCase
 {
     /**
      * @test
-     * @expectedException \BadMethodCallException
+     * @expectedException \Clarkeash\Converter\Exceptions\BadMethodCallException
      */
     public function it_errors_if_no_metric_exists()
     {

@@ -2,7 +2,7 @@
 
 namespace Clarkeash\Converter;
 
-use BadMethodCallException;
+use Clarkeash\Converter\Exceptions\BadMethodCallException;
 use Clarkeash\Converter\Metrics\Size;
 use Clarkeash\Converter\Metrics\Time;
 
@@ -52,7 +52,7 @@ class Convert
             return new From($this, $metric);
         }
 
-        throw new BadMethodCallException(sprintf('Method: %s does not exist on class: %s', $method, get_class($this)));
+        BadMethodCallException::throw($method, $this);
     }
 
     /**
